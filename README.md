@@ -4,7 +4,7 @@ This repository contains the code to create a clone of the Netflix website using
 
 ## Deploy on Vercel
 
-[https://clone-netflix-rho-rouge.vercel.app](https://clone-netflix-rho-rouge.vercel.app)
+[https://clone-01.vercel.app/](https://clone-01.vercel.app/)
 
 ## Characteristics
 
@@ -20,7 +20,7 @@ To get started with this project, follow these steps:
 1. Clone the repository:
 
 ```
-git clone https://github.com/lmindiola89/clone-netflix.git
+git clone https://github.com/lmindiola89/clone-01.git
 ```
 
 2. Open the project in your preferred code editor.
