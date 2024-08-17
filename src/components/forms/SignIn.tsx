@@ -13,7 +13,7 @@ type Inputs = {
   password: string;
 };
 
-function Login() {
+function SignIn() {
   const router = useRouter();
   const [variant, setVariant] = useState("login");
   const [error, setError] = useState("");
@@ -77,7 +77,7 @@ function Login() {
             <input
               id="email"
               type="email"
-              className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1" ${
+              className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1 ${
                 !errors.email
                   ? "border border-gray-400"
                   : "border border-red-600"
@@ -86,7 +86,7 @@ function Login() {
               {...register("email", {
                 required: {
                   value: true,
-                  message: "Email is required",
+                  message: "Email  is required",
                 },
               })}
             />
@@ -97,7 +97,7 @@ function Login() {
               Email address
             </label>
             {errors.email && (
-              <p className="text-red-500 text-xs flex items-center">
+              <p className="text-red-500 text-xs flex">
                 <FaRegTimesCircle size={15} className="mr-1" />
                 {errors.email.message}
               </p>
@@ -108,10 +108,10 @@ function Login() {
               <input
                 id="name"
                 type="text"
-                className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1" ${
+                className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1 ${
                   !errors.name
                     ? "border border-gray-400"
-                    : "border border-red-600 focus:outline-4"
+                    : "border border-red-600"
                 } `}
                 placeholder=" "
                 {...register("name", {
@@ -139,10 +139,10 @@ function Login() {
             <input
               id="password"
               type="password"
-              className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1" ${
+              className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1 ${
                 !errors.password
                   ? "border border-gray-400"
-                  : "border border-red-600 focus:outline-4"
+                  : "border border-red-600"
               } `}
               placeholder=" "
               {...register("password", {
@@ -159,7 +159,7 @@ function Login() {
               Password
             </label>
             {errors.password && (
-              <p className="text-red-500 text-xs flex items-center">
+              <p className="text-red-500 text-xs flex">
                 <FaRegTimesCircle size={15} className="mr-1" />
                 {errors.password.message}
               </p>
@@ -206,4 +206,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignIn;

@@ -20,3 +20,18 @@ html {
 .image-background {
   background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/20bf1f4d-1c73-48fd-8689-310d6dd80efc/d534a978-b7d6-4b03-9910-0a45955833ac/CO-en-20240812-POP_SIGNUP_TWO_WEEKS-perspective_WEB_40391ea6-288e-4d99-a705-a2374e184c91_large.jpg');
 }
+
+
+.notfound-background {
+  background-image: url('https://assets.nflxext.com/ffe/siteui/pages/errors/bg-lost-in-space.png');
+}
+
+
+.notfound-gradient-bg {
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}

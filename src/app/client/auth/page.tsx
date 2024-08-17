@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Login from "@/components/forms/Login";
+import SignIn from "@/components/forms/SignIn";
 import Link from "next/link";
 
 function Auth() {
@@ -20,10 +20,9 @@ function Auth() {
           </header>
         </div>
         <div className="absolute inset-0 mt-[76px] px-[26px] lg:mt-[92px]">
-          <Login></Login>
+          <SignIn />
         </div>
       </div>
-      <footer className="bg-black h-dvh"></footer>
     </>
   );
 }
