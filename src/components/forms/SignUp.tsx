@@ -1,3 +1,4 @@
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { FaRegTimesCircle } from "react-icons/fa";
 
@@ -6,6 +7,7 @@ type Inputs = {
 };
 
 function SignUp() {
+  const router = useRouter();
   const {
     register,
     formState: { errors, isSubmitted, isValid },
@@ -18,6 +20,7 @@ function SignUp() {
 
   const onSubmit = async (data: Inputs) => {
     console.log(data);
+    router.push("/client/signup/registration");
   };
 
   const isEmailEmpty = emailValue === "";

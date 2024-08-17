@@ -2,8 +2,8 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { useForm } from "react-hook-form";
+import Link from "next/link";
 import { FaRegTimesCircle } from "react-icons/fa";
 
 type Inputs = {
@@ -13,6 +13,7 @@ type Inputs = {
 };
 
 function Regform() {
+  const router = useRouter();
   const {
     register,
     formState: { errors },
@@ -20,21 +21,18 @@ function Regform() {
     clearErrors,
   } = useForm<Inputs>();
 
-  console.log(errors);
-
   const onSubmit = handleSubmit(async (data) => {
     // console.log(data);
   });
 
-  const router = useRouter();
   return (
     <div className="bg-white">
-      <header className="max-w-7xl mx-auto flex items-center justify-between px-6 pb-10 pt-6 border-b-2">
+      <header className="flex justify-between items-center p-[24px] md:px-[32px] max-w-[3400px] mx-auto border-b-[1px]">
         <Link href={"/"}>
           <img
             src="/images/logo.png"
             alt="Netflix Logo"
-            className="w-28 lg:w-36"
+            className="w-[89px] h-[24px] lg:w-[148px] lg:h-[40px] "
           />
         </Link>
         <Link
