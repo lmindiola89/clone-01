@@ -36,15 +36,15 @@ function HomePage() {
         </div>
       </div>
       <div className="py-10 bg-black text-white">
-        <section className="border-b-8 border-[#232323]">
-          <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2">
+        <section className="border-b-8 border-[#232323] px-4 pb-14">
+          <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
             {/* left side */}
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-[32px] md:text-5xl font-semibold mb-2">
+            <div className="flex-1 text-center lg:text-start">
+              <h2 className="text-[32px] lg:text-[48px] font-semibold lg:font-extrabold mb-2">
                 Enjoy on your TV
               </h2>
-              <p className="text-lg md:text-xl">
-                Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV,
+              <p className="text-[18px] lg:text-[24px]">
+                Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV,
                 Blu-ray players, and more.
               </p>
             </div>
@@ -67,8 +67,8 @@ function HomePage() {
             </div>
           </div>
         </section>
-        <section className="border-b-8 border-[#232323]">
-          <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 py-10 md:px-2">
+        <section className="border-b-8 border-[#232323] px-4 pb-14 pt-10">
+          <div className="flex items-center justify-center flex-col-reverse lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
             {/* left side */}
             <div className="flex-1 relative">
               <div className="relative">
@@ -104,30 +104,28 @@ function HomePage() {
               </div>
             </div>
             {/* right side */}
-
-            <div className="flex-1 md:text-left text-center">
-              <h2 className="text-[32px] md:text-5xl font-semibold mb-4">
+            <div className="flex-1 text-center lg:text-start">
+              <h2 className="text-[32px] lg:text-[48px] font-semibold lg:font-extrabold mb-2">
                 Download your shows to watch offline
               </h2>
-              <p className="text-lg md:text-xl">
+              <p className="text-[18px] lg:text-[24px]">
                 Save your favorites easily and always have something to watch.
               </p>
             </div>
           </div>
         </section>
-        <section className="border-b-8 border-[#232323]">
-          <div className="flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 py-10 md:px-2">
+        <section className="border-b-8 border-[#232323] px-4 pb-14 pt-10">
+          <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
             {/* left side */}
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-[32px] md:text-5xl font-semibold mb-4">
+            <div className="flex-1 text-center lg:text-start">
+              <h2 className="text-[32px] lg:text-[48px] font-semibold lg:font-extrabold mb-2">
                 Watch everywhere
               </h2>
-              <p className="text-lg md:text-xl">
+              <p className="text-[18px] lg:text-[24px]">
                 Stream unlimited movies and TV shows on your phone, tablet,
                 laptop, and TV.
               </p>
             </div>
-
             {/* right side */}
             <div className="flex-1 relative overflow-hidden">
               <img
@@ -149,11 +147,8 @@ function HomePage() {
             </div>
           </div>
         </section>
-        <section className="border-b-8 border-[#232323]">
-          <div
-            className="flex max-w-6xl mx-auto items-center justify-center flex-col-reverse md:flex-row px-4 py-10 md:px-2
-"
-          >
+        <section className="border-b-8 border-[#232323] px-4 pb-14 pt-10">
+          <div className="flex items-center justify-center flex-col-reverse lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
             {/* left */}
             <div className="flex-1 relative">
               <img
@@ -163,18 +158,18 @@ function HomePage() {
               />
             </div>
             {/* right */}
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-[32px] md:text-5xl font-semibold mb-4">
+            <div className="flex-1 text-center lg:text-start">
+              <h2 className="text-[32px] lg:text-[48px] font-semibold lg:font-extrabold mb-2">
                 Create profiles for kids
               </h2>
-              <p className="text-lg md:text-xl">
+              <p className="text-[18px] lg:text-[24px]">
                 Send kids on adventures with their favorite characters in a
                 space made just for them—free with your membership.
               </p>
             </div>
           </div>
         </section>
-        <section className="border-b-8 border-[#232323]">
+        <section className="border-b-8 border-[#232323] px-2 pb-14 max-w-[3070px] mx-auto">
           <Accordion />
         </section>
         <footer className="bg-black h-96"></footer>

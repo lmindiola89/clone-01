@@ -85,7 +85,7 @@ function SignUp() {
         <button
           onClick={handleScroll}
           type="submit"
-          className="bg-[#e50914] rounded text-white w-[156px] h-[48px]  md:w-[206px] md:h-[56px] self-start"
+          className="bg-[#e50914] rounded text-white w-[156px] h-[48px]  md:w-[206px] md:h-[56px] self-center md:self-start"
         >
           Get Started
         </button>
