@@ -3,8 +3,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import Link from "next/link";
+import { useState } from "react";
 import { FaRegTimesCircle } from "react-icons/fa";
+import endpoint from "@/lib/endpoints";
+import Link from "next/link";
+import useEmailStore from "@/hooks/useEmailStore";
 
 type Inputs = {
   name: string;
@@ -13,16 +16,37 @@ type Inputs = {
 };
 
 function Regform() {
+  const { email } = useEmailStore();
   const router = useRouter();
+  const [error, setError] = useState("");
   const {
     register,
-    formState: { errors },
+    formState: { errors, isValid },
     handleSubmit,
-    clearErrors,
-  } = useForm<Inputs>();
+    trigger,
+    watch,
+  } = useForm<Inputs>({
+    mode: "onChange",
+  });
+
+  const watchEmail = watch("email") || email;
+  const watchPassword = watch("password") || "";
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const isEmailValid = !errors.email && emailRegex.test(watchEmail);
+  const isPasswordValid = !errors.password && watchPassword.length >= 6;
 
   const onSubmit = handleSubmit(async (data) => {
-    // console.log(data);
+    console.log(data);
+    // await endpoint
+    //   .post("register", {
+    //     email: data.email,
+    //     name: data.name,
+    //     password: data.password,
+    //   })
+    //   .catch(function (error) {
+    //     setError(error.response.data.message);
+    //   });
+    // router.push("/client/auth");
   });
 
   return (
@@ -37,14 +61,14 @@ function Regform() {
         </Link>
         <Link
           href={"/client/auth"}
-          className="text-xl font-bold hover:underline text-gray-700"
+          className="text-xl font-bold hover:underline text-black"
         >
           Sign In
         </Link>
       </header>
-      <form onSubmit={onSubmit} className="my-10 flex justify-center">
+      <form onSubmit={onSubmit} className="my-10 flex justify-center px-[32px]">
         <div className="flex flex-col gap-2 w-96 lg:w-1/3">
-          <h2 className="text-3xl font-bold text-gray-700">
+          <h2 className="text-3xl font-bold text-black">
             Create a password to start
             <br />
             your membership
@@ -54,52 +78,84 @@ function Regform() {
             <br />
             We hate paperwork, too.
           </p>
-          <div className="relative">
+          {error && (
+            <p className="text-red-500 text-xs pb-2 flex items-center">
+              <FaRegTimesCircle size={15} className="mr-1" />
+              {error}
+            </p>
+          )}
+          <div className="relative md:flex-grow ">
             <input
               id="email"
               type="email"
-              className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-black focus:outline-offset-4 peer invalid:border-b-1" ${
-                !errors.email
-                  ? "border border-gray-400"
-                  : "border border-red-600 focus:outline-4"
-              } `}
+              defaultValue={email}
+              className={`w-full h-[48px] md:h-[56px] rounded-md px-6 pt-6 pb-1 text-md text-black focus:outline-offset-4 peer invalid:border-b-1 ${
+                isEmailValid
+                  ? "border border-green-600"
+                  : errors?.email
+                  ? "border border-red-600"
+                  : "border border-[#63615e]"
+              }`}
               placeholder=" "
               {...register("email", {
-                required: {
-                  value: true,
-                  message: "Email is required",
+                validate: {
+                  required: (value) => {
+                    if (value.length < 5) {
+                      return "Email is required";
+                    }
+                    if (!emailRegex.test(value)) {
+                      return "Please enter a valid email address.";
+                    }
+                    return true;
+                  },
                 },
               })}
+              onBlur={() => {
+                trigger("email");
+              }}
             />
             <label
               htmlFor="email"
               className="absolute text-md text-zinc-400 duration-150 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-6 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3"
             >
-              Email
+              Email address
             </label>
-            {errors.email && (
-              <p className="text-red-500 text-xs flex items-center">
+            {errors?.email && (
+              <p className="text-red-500 text-xs flex items-center mt-2">
                 <FaRegTimesCircle size={15} className="mr-1" />
-                {errors.email.message}
+                {errors?.email?.message}
               </p>
             )}
           </div>
-          <div className="relative">
+
+          <div className="relative md:flex-grow ">
             <input
               id="password"
               type="password"
-              className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-black focus:outline-offset-4 peer invalid:border-b-1" ${
-                !errors.password
-                  ? "border border-gray-400"
-                  : "border border-red-600 focus:outline-4"
-              } `}
+              className={`w-full h-[48px] md:h-[56px] rounded-md px-6 pt-6 pb-1 text-md text-black focus:outline-offset-4 peer invalid:border-b-1 ${
+                isPasswordValid
+                  ? "border border-green-600"
+                  : errors?.password
+                  ? "border border-red-600"
+                  : "border border-[#63615e]"
+              }`}
               placeholder=" "
               {...register("password", {
-                required: {
-                  value: true,
-                  message: "Password is required",
+                validate: {
+                  required: (value) => {
+                    if (value.length < 1) {
+                      return "Password is required";
+                    }
+                    if (value.length < 5) {
+                      return "Password should be between 6 and 60 characters.";
+                    }
+                    return true;
+                  },
                 },
               })}
+              onBlur={() => {
+                trigger("password");
+              }}
             />
             <label
               htmlFor="password"
@@ -107,19 +163,15 @@ function Regform() {
             >
               Add a password
             </label>
-            {errors.password && (
-              <p className="text-red-500 text-xs flex items-center">
+            {errors?.password && (
+              <p className="text-red-500 text-xs flex items-center mt-2">
                 <FaRegTimesCircle size={15} className="mr-1" />
-                {errors.password.message}
+                {errors?.password?.message}
               </p>
             )}
           </div>
-          <button
-            onClick={() => {
-              router.push("/client/signup/regform");
-            }}
-            className="bg-red-600 h-14 w-full rounded-md text-white text-2xl"
-          >
+
+          <button className="bg-red-600 h-14 w-full rounded-md text-white text-2xl">
             Next
           </button>
         </div>
@@ -130,3 +182,34 @@ function Regform() {
 }
 
 export default Regform;
+
+// <div className="relative">
+// <input
+//   id="name"
+//   type="text"
+//   className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-black focus:outline-offset-4 peer invalid:border-b-1" ${
+//     !errors.name
+//       ? "border border-gray-400"
+//       : "border border-red-600 focus:outline-4"
+//   } `}
+//   placeholder=" "
+//   {...register("name", {
+//     required: {
+//       value: true,
+//       message: "Username  is required",
+//     },
+//   })}
+// />
+// <label
+//   htmlFor="name"
+//   className="absolute text-md text-zinc-400 duration-150 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-6 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3"
+// >
+//   Username
+// </label>
+// {errors.name && (
+//   <p className="text-red-500 text-xs flex items-center">
+//     <FaRegTimesCircle size={15} className="mr-1" />
+//     {errors.name.message}
+//   </p>
+// )}
+// </div>

@@ -4,7 +4,7 @@
 
 html {
   font-family: sans-serif;
-  @apply bg-black
+  /* @apply bg-black */
 }
 
 .gradient-bg {
@@ -35,3 +35,4 @@ html {
     rgba(0, 0, 0, 0.8) 100%
   );
 }
+

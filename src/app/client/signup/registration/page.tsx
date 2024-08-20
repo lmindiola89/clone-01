@@ -5,6 +5,7 @@ import Link from "next/link";
 
 function Registration() {
   const router = useRouter();
+
   return (
     <div className="bg-white">
       <header className="flex justify-between items-center p-[24px] md:px-[32px] max-w-[3400px] mx-auto border-b-[1px]">
@@ -17,7 +18,7 @@ function Registration() {
         </Link>
         <Link
           href={"/client/auth"}
-          className="text-xl font-bold hover:underline text-gray-700"
+          className="text-xl font-bold hover:underline text-black"
         >
           Sign In
         </Link>
@@ -25,7 +26,7 @@ function Registration() {
       <section className="my-20">
         <div className="flex flex-col items-center gap-5">
           <img src="/images/Devices.png" alt="" className="w-56" />
-          <h2 className="text-center text-3xl font-bold text-gray-700">
+          <h2 className="text-center text-3xl font-bold text-black">
             Finish setting up your
             <br />
             account

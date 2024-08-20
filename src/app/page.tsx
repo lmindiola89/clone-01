@@ -7,35 +7,34 @@ import Link from "next/link";
 function HomePage() {
   return (
     <>
-      <div className="relative h-[480px] md:h-[512px] lg:h-[700px] overflow-hidden border-b-8 border-[#232323]">
+      <div className="relative min-h-[480px] md:h-[512px] lg:h-[700px] overflow-hidden">
         <div className="absolute inset-0 image-background bg-no-repeat bg-cover h-full md:bg-center md:scale-125 md:-mt-[64px] lg:-mt-[87.5px]"></div>
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)]"></div>
         <div className="absolute inset-0 gradient-bg"></div>
-        <div className="absolute inset-0">
-          <header className="flex justify-between items-center p-[24px] mb-[48.5px] md:mb-[120px] lg:mb-[200px] md:px-[32px] max-w-[3400px] mx-auto">
-            <img
-              src="/images/logo.png"
-              alt="Netflix Logo"
-              className="w-[89px] h-[24px] lg:w-[148px] lg:h-[40px] "
-            />
-            <Link href={"/client/auth"}>
-              <button className="text-white bg-[#e50914] rounded w-[75.59px] h-[32px] text-[14px] leading-[14px]">
-                Sign In
-              </button>
-            </Link>
-          </header>
-          <div className="flex flex-col justify-center mx-[24px] my-[6px]">
-            <h1 className=" text-white text-center text-[32px] lg:text-[48px] font-bold lg:font-extrabold leading-none">
-              Unlimited movies, TV shows, and more
-            </h1>
-            <p className="text-white text-center mt-[16px] text-[18px] lg:text-[24px]">
-              Watch anywhere. Cancel anytime.
-            </p>
-            <SignUp></SignUp>
-          </div>
+        <header className="relative z-10 flex justify-between items-center p-[24px] md:px-[32px] max-w-[3400px] mx-auto">
+          <img
+            src="/images/logo.png"
+            alt="Netflix Logo"
+            className="w-[89px] h-[24px] lg:w-[148px] lg:h-[40px] "
+          />
+          <Link href={"/client/auth"}>
+            <button className="text-white bg-[#e50914] rounded w-[75.59px] h-[32px] text-[14px] leading-[14px]">
+              Sign In
+            </button>
+          </Link>
+        </header>
+        <div className="relative z-10 h-full px-[24px] pt-12 md:pt-28 lg:pt-48">
+          <h1 className=" text-white text-center text-[32px] lg:text-[48px] font-bold lg:font-extrabold leading-none">
+            Unlimited movies, TV shows, and more
+          </h1>
+          <p className="text-white text-center mt-[16px] text-[18px] lg:text-[24px]">
+            Watch anywhere. Cancel anytime.
+          </p>
+          <SignUp />
         </div>
       </div>
-      <div className="py-10 bg-black text-white">
+      <div className="bg-[#232323] h-[8px]"></div>
+      <section className="py-10 bg-black text-white">
         <section className="border-b-8 border-[#232323] px-4 pb-14">
           <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
             {/* left side */}
@@ -169,11 +168,11 @@ function HomePage() {
             </div>
           </div>
         </section>
-        <section className="border-b-8 border-[#232323] px-2 pb-14 max-w-[3070px] mx-auto">
+        <section className="border-b-8 border-[#232323] px-2 pb-14">
           <Accordion />
         </section>
-        <footer className="bg-black h-96"></footer>
-      </div>
+      </section>
+      <footer className="bg-black h-96"></footer>
     </>
   );
 }
