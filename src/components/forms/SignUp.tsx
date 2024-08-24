@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { FaRegTimesCircle } from "react-icons/fa";
 import useEmailStore from "@/hooks/useEmailStore";
 import { FaChevronRight } from "react-icons/fa6";
+import endpoint from "@/lib/endpoints";
 
 type Inputs = {
   email: string;
@@ -37,15 +38,25 @@ function SignUp() {
     }
   };
 
-  const onSubmit = async (data: Inputs) => {
+  const onSubmit = handleSubmit(async (data: Inputs) => {
     setEmail(data.email);
-    router.push("/client/signup/registration");
-  };
+
+    await endpoint
+      .post("verifyEmail", {
+        email: data.email,
+      })
+      .then(function (response) {
+        router.push("/client/signup/registration");
+      })
+      .catch(function (error) {
+        router.push("/client/auth");
+      });
+  });
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mt-[24px] mx-[24px] flex flex-col md:gap-4 md:items-center"
+      onSubmit={onSubmit}
+      className="mt-[24px] mx-[24px] flex flex-col gap-2 md:gap-4 md:items-center"
     >
       <h3 className="text-white text-[18px] lg:text-[20px] text-center">
         Ready to watch? Enter your email to create or restart your membership.
@@ -108,4 +119,19 @@ function SignUp() {
 
 export default SignUp;
 
-// router.push("/client/signup/registration");
+// const onSubmit = handleSubmit(async (data: Inputs) => {
+//   setEmail(data.email);
+
+//   await endpoint
+//     .post("register", {
+//       email: data.email,
+//     })
+//     .catch(function (error) {
+//       console.log(error.response);
+//       if (error.response.status === 422) {
+//         router.push("/client/auth");
+//       } else {
+//         router.push("/client/signup/registration");
+//       }
+//     });
+// });

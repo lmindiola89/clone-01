@@ -4,7 +4,7 @@
 
 html {
   font-family: sans-serif;
-  /* @apply bg-black */
+  @apply bg-black
 }
 
 .gradient-bg {
@@ -18,7 +18,7 @@ html {
 
 
 .image-background {
-  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/20bf1f4d-1c73-48fd-8689-310d6dd80efc/d534a978-b7d6-4b03-9910-0a45955833ac/CO-en-20240812-POP_SIGNUP_TWO_WEEKS-perspective_WEB_40391ea6-288e-4d99-a705-a2374e184c91_large.jpg');
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/36a4db5b-dec2-458a-a1c0-662fa60e7473/ff6ca084-e8b1-4cdb-b4d8-1d7651d1d346/CO-en-20240820-TRIFECTA-perspective_WEB_5a681ee1-cab4-41d8-afea-533fa7d4d89d_large.jpg');
 }
 
 

@@ -1,13 +1,20 @@
 import { NextResponse } from "next/server";
 import prismadb from "@/db/prismadb";
-import bcrypt from "bcrypt";
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    // Parse JSON body
+    const { email } = await request.json();
 
-    const { email, name, password } = body;
+    // Validate email
+    if (!email) {
+      return NextResponse.json(
+        { message: "Email is required" },
+        { status: 400 }
+      );
+    }
 
+    // Check for existing email
     const existingUser = await prismadb.user.findUnique({
       where: {
         email,
@@ -17,23 +24,13 @@ export async function POST(request: Request) {
     if (existingUser) {
       return NextResponse.json(
         { message: "Email already exists" },
-        { status: 422 }
+        { status: 409 }
       );
     }
-
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    const user = await prismadb.user.create({
-      data: {
-        email,
-        name,
-        hashedPassword,
-        image: "",
-        emailVerified: new Date(),
-      },
-    });
-
-    return NextResponse.json({ user }, { status: 200 });
+    return NextResponse.json(
+      { message: "Email does not exist" },
+      { status: 200 }
+    );
   } catch (error) {
     return NextResponse.json(
       { message: `Something went wrong: ${error}` },

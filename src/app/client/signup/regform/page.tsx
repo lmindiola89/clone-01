@@ -36,17 +36,21 @@ function Regform() {
   const isPasswordValid = !errors.password && watchPassword.length >= 6;
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data);
-    // await endpoint
-    //   .post("register", {
-    //     email: data.email,
-    //     name: data.name,
-    //     password: data.password,
-    //   })
-    //   .catch(function (error) {
-    //     setError(error.response.data.message);
-    //   });
-    // router.push("/client/auth");
+    await endpoint
+      .post("register", {
+        email: data.email,
+        name: data.name,
+        password: data.password,
+      })
+      .then(function (response) {
+        console.log(response.status);
+        if (response.status === 200) {
+          router.push("/client/auth");
+        }
+      })
+      .catch(function (error) {
+        setError(error.response.data.message);
+      });
   });
 
   return (
@@ -130,6 +134,49 @@ function Regform() {
 
           <div className="relative md:flex-grow ">
             <input
+              id="name"
+              type="text"
+              className={`w-full h-[48px] md:h-[56px] rounded-md px-6 pt-6 pb-1 text-md text-black focus:outline-offset-4 peer invalid:border-b-1 ${
+                isPasswordValid
+                  ? "border border-green-600"
+                  : errors?.name
+                  ? "border border-red-600"
+                  : "border border-[#63615e]"
+              }`}
+              placeholder=" "
+              {...register("name", {
+                validate: {
+                  required: (value) => {
+                    if (value.length < 1) {
+                      return "Username  is required";
+                    }
+                    if (value.length < 5) {
+                      return "Username should be between 6 and 50 characters.";
+                    }
+                    return true;
+                  },
+                },
+              })}
+              onBlur={() => {
+                trigger("name");
+              }}
+            />
+            <label
+              htmlFor="name"
+              className="absolute text-md text-zinc-400 duration-150 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-6 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3"
+            >
+              Username
+            </label>
+            {errors?.name && (
+              <p className="text-red-500 text-xs flex items-center mt-2">
+                <FaRegTimesCircle size={15} className="mr-1" />
+                {errors?.name?.message}
+              </p>
+            )}
+          </div>
+
+          <div className="relative md:flex-grow ">
+            <input
               id="password"
               type="password"
               className={`w-full h-[48px] md:h-[56px] rounded-md px-6 pt-6 pb-1 text-md text-black focus:outline-offset-4 peer invalid:border-b-1 ${
@@ -182,34 +229,3 @@ function Regform() {
 }
 
 export default Regform;
-
-// <div className="relative">
-// <input
-//   id="name"
-//   type="text"
-//   className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-black focus:outline-offset-4 peer invalid:border-b-1" ${
-//     !errors.name
-//       ? "border border-gray-400"
-//       : "border border-red-600 focus:outline-4"
-//   } `}
-//   placeholder=" "
-//   {...register("name", {
-//     required: {
-//       value: true,
-//       message: "Username  is required",
-//     },
-//   })}
-// />
-// <label
-//   htmlFor="name"
-//   className="absolute text-md text-zinc-400 duration-150 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] left-6 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-3"
-// >
-//   Username
-// </label>
-// {errors.name && (
-//   <p className="text-red-500 text-xs flex items-center">
-//     <FaRegTimesCircle size={15} className="mr-1" />
-//     {errors.name.message}
-//   </p>
-// )}
-// </div>
