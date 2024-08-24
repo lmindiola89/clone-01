@@ -18,7 +18,7 @@ function HomePage() {
             className="w-[89px] h-[24px] lg:w-[148px] lg:h-[40px] "
           />
           <Link href={"/client/auth"}>
-            <button className="text-white bg-[#e50914] rounded w-[75.59px] h-[32px] text-[14px] leading-[14px]">
+            <button className="text-white bg-[#e50914] rounded w-[75.59px] h-[32px] text-[14px] leading-[14px] transition hover:bg-[#c11119]">
               Sign In
             </button>
           </Link>

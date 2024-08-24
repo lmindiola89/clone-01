@@ -107,7 +107,7 @@ function SignUp() {
         <button
           onClick={handleScroll}
           type="submit"
-          className="bg-[#e50914] rounded text-white text-[18px] md:text-[24px] w-[156px] h-[48px]  md:w-[206px] md:h-[56px] self-center md:self-start flex justify-center items-center"
+          className="bg-[#e50914] rounded text-white text-[18px] md:text-[24px] w-[156px] h-[48px]  md:w-[206px] md:h-[56px] self-center md:self-start flex justify-center items-center transition hover:bg-[#c11119]"
         >
           Get Started
           <FaChevronRight className="ml-[12px]" size={20} />

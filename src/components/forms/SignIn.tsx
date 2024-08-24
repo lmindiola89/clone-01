@@ -130,7 +130,7 @@ function SignIn() {
           </div>
           <button
             type="submit"
-            className="bg-red-600 py-3  text-white rounded-md w-full hover:bg-red-700 transition"
+            className="bg-[#e50914] py-3  text-white rounded-md w-full  transition hover:bg-[#c11119]"
           >
             Sign in
           </button>
