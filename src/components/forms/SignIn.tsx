@@ -2,10 +2,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import endpoint from "@/lib/endpoints";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaRegTimesCircle } from "react-icons/fa";
+import useEmailStore from "@/hooks/useEmailStore";
 
 type Inputs = {
   email: string;
@@ -14,6 +14,7 @@ type Inputs = {
 
 function SignIn() {
   const router = useRouter();
+  const { email } = useEmailStore();
   const [error, setError] = useState("");
   const {
     register,
@@ -23,7 +24,7 @@ function SignIn() {
     trigger,
   } = useForm<Inputs>({
     mode: "onSubmit",
-    shouldFocusError: false, // Disable automatic focusing on error fields
+    shouldFocusError: false,
   });
 
   const onSubmit = async (data: Inputs) => {
@@ -56,6 +57,7 @@ function SignIn() {
               tabIndex={-1}
               id="email"
               type="email"
+              defaultValue={email}
               className={`mb-2 rounded-md px-6 pt-6 pb-1 w-full text-md text-white bg-black bg-opacity-40 focus:outline-offset-4 peer invalid:border-b-1 ${
                 !errors.email
                   ? "border border-gray-400"
