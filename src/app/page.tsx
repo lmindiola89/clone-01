@@ -7,11 +7,11 @@ import Link from "next/link";
 function HomePage() {
   return (
     <>
-      <div className="relative min-h-[480px] md:h-[512px] lg:h-[700px] overflow-hidden">
-        <div className="absolute inset-0 image-background bg-no-repeat bg-cover h-full md:bg-center md:scale-125 md:-mt-[64px] lg:-mt-[87.5px]"></div>
-        <div className="absolute inset-0 bg-[rgba(0,0,0,0.4)]"></div>
-        <div className="absolute inset-0 gradient-bg"></div>
-        <header className="relative z-10 flex justify-between items-center p-[24px] md:px-[32px] max-w-[3400px] mx-auto">
+      <div className="relative">
+        <div className="absolute inset-0 image-background bg-no-repeat bg-cover bg-center"></div>
+        <div className="absolute inset-0 bg-[rgba(0,0,0,0.8)]"></div>
+        {/* <div className="absolute inset-0 gradient-bg"></div> */}
+        <header className="relative z-10 flex justify-between items-center p-[24px] md:px-[32px] max-w-[3400px] mx-auto h-[80px]">
           <img
             src="/images/logo.png"
             alt="Netflix Logo"
@@ -23,7 +23,7 @@ function HomePage() {
             </button>
           </Link>
         </header>
-        <div className="relative z-10 h-full px-[32px] pb-[32px] flex justify-center pt-40">
+        <div className="relative z-10 h-full px-[32px] pb-[32px] flex justify-center pt-40 lg:h-[620px]">
           <div className="max-w-[508px]">
             <h1 className=" text-white text-center text-[32px] lg:text-[40px] font-bold leading-none">
               Unlimited movies, TV shows, and more
