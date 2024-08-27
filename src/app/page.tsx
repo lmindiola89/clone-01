@@ -23,14 +23,20 @@ function HomePage() {
             </button>
           </Link>
         </header>
-        <div className="relative z-10 h-full px-[24px] pt-12 md:pt-28 lg:pt-48">
-          <h1 className=" text-white text-center text-[32px] lg:text-[48px] font-bold lg:font-extrabold leading-none">
-            Unlimited movies, TV shows, and more
-          </h1>
-          <p className="text-white text-center mt-[16px] text-[18px] lg:text-[24px]">
-            Watch anywhere. Cancel anytime.
-          </p>
-          <SignUp />
+        <div className="relative z-10 h-full px-[32px] pb-[32px] flex justify-center pt-40">
+          <div className="max-w-[508px]">
+            <h1 className=" text-white text-center text-[32px] lg:text-[40px] font-bold leading-none">
+              Unlimited movies, TV shows, and more
+            </h1>
+            <p className="text-white text-center mt-[16px] text-[16px]">
+              Starts at COP 16,900. Cancel anytime.
+            </p>
+            <h3 className="text-white text-[18px] lg:text-[16px] text-center mt-2">
+              Ready to watch? Enter your email to create or restart your
+              membership.
+            </h3>
+            <SignUp />
+          </div>
         </div>
       </div>
       <div className="bg-[#232323] h-[8px]"></div>
