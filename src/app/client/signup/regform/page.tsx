@@ -8,6 +8,7 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import endpoint from "@/lib/endpoints";
 import Link from "next/link";
 import useEmailStore from "@/hooks/useEmailStore";
+import { ClipLoader } from "react-spinners";
 
 type Inputs = {
   name: string;
@@ -17,6 +18,7 @@ type Inputs = {
 
 function Regform() {
   const { email } = useEmailStore();
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const [error, setError] = useState("");
   const {
@@ -36,6 +38,7 @@ function Regform() {
   const isPasswordValid = !errors.password && watchPassword.length >= 6;
 
   const onSubmit = handleSubmit(async (data) => {
+    setLoading(true);
     await endpoint
       .post("register", {
         email: data.email,
@@ -51,6 +54,7 @@ function Regform() {
       .catch(function (error) {
         setError(error.response.data.message);
       });
+    setLoading(false);
   });
 
   return (
@@ -219,7 +223,7 @@ function Regform() {
           </div>
 
           <button className="bg-red-600 h-14 w-full rounded-md text-white text-2xl">
-            Next
+            {loading ? <ClipLoader size={20} color="#fff" /> : "Next"}
           </button>
         </div>
       </form>

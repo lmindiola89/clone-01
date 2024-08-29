@@ -11,7 +11,7 @@ export default function Home() {
   const { data: moviesFavorites = [] } = useMoviesFavorites();
 
   return (
-    <>
+    <div className="bg-black">
       <InfoModal />
       <Navbar />
       <Billboard />
@@ -19,6 +19,6 @@ export default function Home() {
         <MoviesList title="Trending Now" data={movies} />
         <MoviesList title="My List" data={moviesFavorites} />
       </div>
-    </>
+    </div>
   );
 }

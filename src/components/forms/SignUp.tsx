@@ -4,6 +4,8 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import useEmailStore from "@/hooks/useEmailStore";
 import { FaChevronRight } from "react-icons/fa6";
 import endpoint from "@/lib/endpoints";
+import { ClipLoader } from "react-spinners";
+import { useState } from "react";
 
 type Inputs = {
   email: string;
@@ -11,7 +13,7 @@ type Inputs = {
 
 function SignUp() {
   const { setEmail, email } = useEmailStore();
-
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const {
     register,
@@ -39,18 +41,29 @@ function SignUp() {
   };
 
   const onSubmit = handleSubmit(async (data: Inputs) => {
+    setLoading(true);
     setEmail(data.email);
-
-    await endpoint
-      .post("verifyEmail", {
+    try {
+      await endpoint.post("verifyEmail", {
         email: data.email,
-      })
-      .then(function (response) {
-        router.push("/client/signup/registration");
-      })
-      .catch(function (error) {
-        router.push("/client/auth");
       });
+      router.push("/client/signup/registration");
+    } catch (error) {
+      router.push("/client/auth");
+    } finally {
+      setLoading(false); // Termina el loading
+    }
+
+    // await endpoint
+    //   .post("verifyEmail", {
+    //     email: data.email,
+    //   })
+    //   .then(function (response) {
+    //     router.push("/client/signup/registration");
+    //   })
+    //   .catch(function (error) {
+    //     router.push("/client/auth");
+    //   });
   });
 
   return (
@@ -103,19 +116,22 @@ function SignUp() {
       <button
         onClick={handleScroll}
         type="submit"
-        className="self-center w-[156px] h-[48px] md:h-full bg-[#e50914] rounded text-white text-[18px] transition hover:bg-[#c11119] flex justify-center items-center max-w-[177px]"
+        className={`self-center w-[156px] md:w-[176px] h-[48px] md:h-full bg-[#e50914] rounded text-white text-[18px] transition hover:bg-[#c11119] flex justify-center items-center max-w-[177px] ${
+          loading ? "opacity-50" : ""
+        }`}
+        disabled={loading}
       >
-        Get Started
-        <FaChevronRight className="ml-[10px]" size={20} />
+        {loading ? (
+          <ClipLoader size={20} color="#fff" />
+        ) : (
+          <>
+            <span>Get Started</span>
+            <FaChevronRight className="ml-[10px]" size={20} />
+          </>
+        )}
       </button>
     </form>
   );
 }
 
 export default SignUp;
-
-{
-  /* <div className="flex flex-col gap-4  md:gap-2 md:w-[585px] md:px-[32px] lg:px-0">
- 
-</div> */
-}

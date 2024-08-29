@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub, FaRegTimesCircle } from "react-icons/fa";
+import { ClipLoader } from "react-spinners";
 import useEmailStore from "@/hooks/useEmailStore";
 
 type Inputs = {
@@ -13,6 +14,7 @@ type Inputs = {
 };
 
 function SignIn() {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { email } = useEmailStore();
   const [error, setError] = useState("");
@@ -28,6 +30,7 @@ function SignIn() {
   });
 
   const onSubmit = async (data: Inputs) => {
+    setLoading(true);
     const res = await signIn("credentials", {
       email: data.email,
       password: data.password,
@@ -36,6 +39,7 @@ function SignIn() {
     if (res?.error) setError(res?.error);
     router.push("/client/profiles");
     router.refresh();
+    setLoading(false);
   };
 
   return (
@@ -130,9 +134,12 @@ function SignIn() {
           </div>
           <button
             type="submit"
-            className="bg-[#e50914] py-3  text-white rounded-md w-full  transition hover:bg-[#c11119]"
+            className={`bg-[#e50914] py-3 text-white rounded-md w-full transition hover:bg-[#c11119] flex justify-center items-center ${
+              loading ? "opacity-50" : ""
+            }`}
+            disabled={loading}
           >
-            Sign in
+            {loading ? <ClipLoader size={20} color="#fff" /> : "Sign in"}
           </button>
           <p className="text-neutral-500 mt-5 text-sm">
             New to Netflix?
