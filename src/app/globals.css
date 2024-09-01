@@ -66,3 +66,12 @@ input:-webkit-autofill:focus {
   
 }
 
+.radial-gradient {
+  background: radial-gradient(11% 56% at 17% 50%, #461518 0%, transparent 100%), radial-gradient(11% 56% at 83% 50%, #461518 0%, transparent 100%)
+}
+
+.linear-gradient {
+  background: linear-gradient(0deg, transparent 0%, #6f181d 50%, transparent 100%);
+}
+
+

@@ -1,6 +1,8 @@
 # Netflix_Clone
 
-This repository contains the code to create a clone of the Netflix website using Typescript, Tailwind, React, React-icons, React-hook-form, React-query, Zustand, Axios, Bcrypt, Lodash, Nextjs, Next-auth, Prisma and Mogodb. The project aims to recreate the visual design and layout of the Netflix page, providing a starting point to create similar interfaces or learn web development techniques.
+This repository contains the code to create a clone of the Netflix website using Typescript, Tailwind, React, React-icons, React-hook-form, React-query, Zustand, Axios, Bcrypt, Lodash, Nextjs, Next-auth, Prisma, Mogodb and other tools. The project aims to recreate the visual design and layout of the Netflix website, providing a starting point for creating similar interfaces and learning web development techniques.
+
+It will be updated whenever the official website makes changes.
 
 ## Deploy on Vercel
 
