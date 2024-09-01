@@ -4,7 +4,7 @@
 
 html {
   font-family: sans-serif;
-  /* @apply bg-black */
+  @apply bg-black
 }
 
 .gradient-bg {
@@ -18,7 +18,7 @@ html {
 
 
 .image-background {
-  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/1d29f9a4-1900-43dc-a420-99044f734ee2/ad2b2601-8fe1-4c3c-8e72-f5007b8636ae/CO-en-20240826-POP_SIGNUP_TWO_WEEKS-perspective_WEB_a4efcbf0-97d6-4ce3-8749-83665e1bbd15_large.jpg');
+  background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/dae1f45f-c2c5-4a62-8d58-6e1b0c6b2d8e/02f59e5f-6c5a-4a80-8fdc-5c07f01a7cc1/CO-en-20240827-TRIFECTA-perspective_WEB_9567a447-cf2e-4099-a4e4-80829effa412_large.jpg');
 }
 
 
@@ -40,3 +40,29 @@ input:-webkit-autofill,
 input:-webkit-autofill:focus {
   transition: background-color 0s 600000s, color 0s 600000s !important;
 }
+
+.horizontal-2 {
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background: radial-gradient(
+      50% 500% at 50% -420%,
+      rgba(64, 97, 231, 0.4) 80%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    black;
+}
+
+.horizontal-1 {
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  background: linear-gradient(
+    to right,
+    rgba(33, 13, 22, 1) 16%,
+    rgba(184, 40, 105, 1),
+    rgba(229, 9, 20, 1),
+    rgba(184, 40, 105, 1),
+    rgba(33, 13, 22, 1) 84%
+  );
+  
+}
+

@@ -31,7 +31,7 @@ function SignUp() {
   const isEmailValid = isValid && !errors.email;
 
   const handleScroll = () => {
-    const scrollPosition = 180;
+    const scrollPosition = 145;
     if (isEmailEmpty) {
       window.scrollTo({
         top: scrollPosition, // Desplazarse a la posición específica
@@ -51,19 +51,8 @@ function SignUp() {
     } catch (error) {
       router.push("/client/auth");
     } finally {
-      setLoading(false); // Termina el loading
+      setLoading(false);
     }
-
-    // await endpoint
-    //   .post("verifyEmail", {
-    //     email: data.email,
-    //   })
-    //   .then(function (response) {
-    //     router.push("/client/signup/registration");
-    //   })
-    //   .catch(function (error) {
-    //     router.push("/client/auth");
-    //   });
   });
 
   return (

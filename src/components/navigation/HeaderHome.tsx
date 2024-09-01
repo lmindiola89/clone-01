@@ -3,7 +3,7 @@ import Link from "next/link";
 
 function HeaderHome() {
   return (
-    <header className="relative z-10 flex justify-between items-center p-[24px] md:px-[32px] lg:px-[80px] max-w-[1282px] mx-auto h-[80px]">
+    <header className="flex justify-between items-center p-[24px] md:px-[32px] lg:px-[80px] max-w-[1282px] mx-auto h-[80px]">
       <img
         src="/images/logo.png"
         alt="Netflix Logo"

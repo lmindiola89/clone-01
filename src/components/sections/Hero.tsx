@@ -2,7 +2,7 @@ import SignUp from "@/components/forms/SignUp";
 
 function Hero() {
   return (
-    <div className="relative z-10 h-full px-[32px] pb-[32px] flex justify-center pt-20 lg:pt-36 lg:h-[620px]">
+    <div className="px-[32px] pb-[32px] flex justify-center pt-20 lg:pt-36">
       <div className="max-w-[508px]">
         <h1 className=" text-white text-center text-[32px] lg:text-[40px] font-bold leading-none">
           Unlimited movies, TV shows, and more
