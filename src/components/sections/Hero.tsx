@@ -8,7 +8,7 @@ function Hero() {
           Unlimited movies, TV shows, and more
         </h1>
         <p className="text-white text-center mt-[16px] text-[16px]">
-          Starts at COP 16,900. Cancel anytime.
+          Starts at $6.99. Cancel anytime.
         </p>
         <h3 className="text-white text-[16px] text-center mt-2">
           Ready to watch? Enter your email to create or restart your membership.
