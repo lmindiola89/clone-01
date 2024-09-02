@@ -15,14 +15,13 @@ function HomePage() {
             <HeaderHome />
             <Hero />
           </div>
-          <div className="horizontal-1 absolute  bottom-0 h-[100px] w-[140%] max-w-[2304px] left-1/2 transform -translate-x-1/2">
+          <div className="horizontal-1 absolute  bottom-0 h-[100px] w-[180%] md:w-[170%] lg:md:w-[150%] max-w-[2304px] left-1/2 transform -translate-x-1/2">
             <div className="horizontal-2 h-full mt-1"></div>
           </div>
         </div>
         <div className="radial-gradient absolute -z-10 h-full w-[160rem]  left-1/2 transform -translate-x-1/2"></div>
         <div className="linear-gradient absolute -z-10 h-full w-[120.8rem]  left-1/2 transform -translate-x-1/2"></div>
       </div>
-
       {/* <div className="bg-[#232323] h-[8px]"></div> */}
       <Sections />
     </>
