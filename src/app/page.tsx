@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
 import HeaderHome from "@/components/navigation/HeaderHome";
 import Hero from "@/components/sections/Hero";
 import Sections from "@/components/sections/Sections";
@@ -22,7 +20,6 @@ function HomePage() {
         <div className="radial-gradient absolute -z-10 h-full w-[160rem]  left-1/2 transform -translate-x-1/2"></div>
         <div className="linear-gradient absolute -z-10 h-full w-[120.8rem]  left-1/2 transform -translate-x-1/2"></div>
       </div>
-      {/* <div className="bg-[#232323] h-[8px]"></div> */}
       <Sections />
     </>
   );

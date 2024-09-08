@@ -1,3 +1,4 @@
+"use client";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { FaRegTimesCircle } from "react-icons/fa";
@@ -40,7 +41,7 @@ function SignUp() {
     }
   };
 
-  const onSubmit = handleSubmit(async (data: Inputs) => {
+  const onSubmit = async (data: Inputs) => {
     setLoading(true);
     setEmail(data.email);
     try {
@@ -53,11 +54,11 @@ function SignUp() {
     } finally {
       setLoading(false);
     }
-  });
+  };
 
   return (
     <form
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="md:h-[56px] mt-[16px] flex flex-col gap-2 md:flex-row md:justify-between"
     >
       <div className="relative flex-grow">

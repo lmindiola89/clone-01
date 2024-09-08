@@ -1,3 +1,4 @@
+"use client";
 import { useCallback } from "react";
 import useInfoModalStore from "@/hooks/useInfoModalStore";
 import useMoviesRandom from "@/hooks/useMoviesRandom";
