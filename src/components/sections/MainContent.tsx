@@ -3,8 +3,8 @@ import Accordion from "@/components/sections/Accordion";
 
 function MainContent() {
   return (
-    <section className="py-10 bg-black text-white">
-      <section className="border-b-2 border-[#232323] px-4 pb-14">
+    <section className="bg-black text-white mx-auto">
+      <section className="border-b-2 border-[#232323] px-[80px] pb-14">
         <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
           <div className="flex-1 text-center lg:text-start">
@@ -35,7 +35,7 @@ function MainContent() {
           </div>
         </div>
       </section>
-      <section className="border-b-2 border-[#232323] px-4 pb-14 pt-10">
+      <section className="border-b-2 border-[#232323] px-[80px] pb-14 pt-10">
         <div className="flex items-center justify-center flex-col-reverse lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
           <div className="flex-1 relative">
@@ -82,7 +82,7 @@ function MainContent() {
           </div>
         </div>
       </section>
-      <section className="border-b-2 border-[#232323] px-4 pb-14 pt-10">
+      <section className="border-b-2 border-[#232323] px-[80px] pb-14 pt-10">
         <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
           <div className="flex-1 text-center lg:text-start">
@@ -115,7 +115,7 @@ max-w-[63%]
           </div>
         </div>
       </section>
-      <section className="border-b-2 border-[#232323] px-4 pb-14 pt-10">
+      <section className="border-b-2 border-[#232323] px-[80px] pb-14 pt-10">
         <div className="flex items-center justify-center flex-col-reverse lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left */}
           <div className="flex-1 relative">
@@ -137,7 +137,7 @@ max-w-[63%]
           </div>
         </div>
       </section>
-      <section className="border-b-2 border-[#232323] px-2 pb-14">
+      <section className="border-b-2 border-[#232323] px-[80px] pb-14 pt-10">
         <Accordion />
       </section>
     </section>
