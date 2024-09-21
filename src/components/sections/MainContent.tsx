@@ -3,7 +3,7 @@ import Accordion from "@/components/sections/Accordion";
 
 function MainContent() {
   return (
-    <div className="py-10 bg-black text-white">
+    <section className="py-10 bg-black text-white">
       <section className="border-b-2 border-[#232323] px-4 pb-14">
         <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
@@ -140,7 +140,7 @@ max-w-[63%]
       <section className="border-b-2 border-[#232323] px-2 pb-14">
         <Accordion />
       </section>
-    </div>
+    </section>
   );
 }
 
