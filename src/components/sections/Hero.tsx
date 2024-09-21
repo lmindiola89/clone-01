@@ -2,7 +2,7 @@ import SignUp from "@/components/forms/SignUp";
 
 function Hero() {
   return (
-    <div className="px-[32px] pb-[32px] flex justify-center pt-20 lg:pt-36">
+    <section className="px-[32px] pb-[32px] flex justify-center pt-20 lg:pt-36">
       <div className="max-w-[508px]">
         <h1 className=" text-white text-center text-[32px] lg:text-[40px] font-bold leading-none">
           Unlimited movies, TV shows, and more
@@ -15,7 +15,7 @@ function Hero() {
         </h3>
         <SignUp />
       </div>
-    </div>
+    </section>
   );
 }
 

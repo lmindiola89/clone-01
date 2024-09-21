@@ -1,7 +1,7 @@
 import React from "react";
 
-function FooterHome() {
+function Footer() {
   return <footer className="bg-black h-96"></footer>;
 }
 
-export default FooterHome;
+export default Footer;

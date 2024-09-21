@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 import Accordion from "@/components/sections/Accordion";
 
-function Sections() {
+function MainContent() {
   return (
-    <section className="py-10 bg-black text-white">
-      <section className="border-b-8 border-[#232323] px-4 pb-14">
+    <div className="py-10 bg-black text-white">
+      <section className="border-b-2 border-[#232323] px-4 pb-14">
         <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
           <div className="flex-1 text-center lg:text-start">
@@ -35,7 +35,7 @@ function Sections() {
           </div>
         </div>
       </section>
-      <section className="border-b-8 border-[#232323] px-4 pb-14 pt-10">
+      <section className="border-b-2 border-[#232323] px-4 pb-14 pt-10">
         <div className="flex items-center justify-center flex-col-reverse lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
           <div className="flex-1 relative">
@@ -82,7 +82,7 @@ function Sections() {
           </div>
         </div>
       </section>
-      <section className="border-b-8 border-[#232323] px-4 pb-14 pt-10">
+      <section className="border-b-2 border-[#232323] px-4 pb-14 pt-10">
         <div className="flex items-center justify-center flex-col lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left side */}
           <div className="flex-1 text-center lg:text-start">
@@ -115,7 +115,7 @@ max-w-[63%]
           </div>
         </div>
       </section>
-      <section className="border-b-8 border-[#232323] px-4 pb-14 pt-10">
+      <section className="border-b-2 border-[#232323] px-4 pb-14 pt-10">
         <div className="flex items-center justify-center flex-col-reverse lg:flex-row px-4 md:px-2 mx-auto max-w-7xl">
           {/* left */}
           <div className="flex-1 relative">
@@ -137,11 +137,11 @@ max-w-[63%]
           </div>
         </div>
       </section>
-      <section className="border-b-8 border-[#232323] px-2 pb-14">
+      <section className="border-b-2 border-[#232323] px-2 pb-14">
         <Accordion />
       </section>
-    </section>
+    </div>
   );
 }
 
-export default Sections;
+export default MainContent;

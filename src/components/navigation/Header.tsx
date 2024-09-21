@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-function HeaderHome() {
+function Header() {
   return (
     <header className="flex justify-between items-center p-[24px] md:px-[32px] lg:px-[80px] max-w-[1282px] mx-auto h-[80px]">
       <img
@@ -18,4 +18,4 @@ function HeaderHome() {
   );
 }
 
-export default HeaderHome;
+export default Header;
