@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="h-96 text-[#ffffffb3] max-w-[1212px] mx-auto px-[80px] pt-10">
+    <footer className="text-[#ffffffb3] max-w-[1212px] mx-auto px-10 lg:px-[80px] py-10">
       <p>
         Questions? Call{" "}
         <a href="tel:01 800 917 1563" className="underline">

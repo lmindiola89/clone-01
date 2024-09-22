@@ -54,7 +54,7 @@ function Accordion() {
     setOpenIndex(openIndex === index ? null : index);
   };
   return (
-    <div className=" max-w-[1212px] mx-auto">
+    <div className="px-5 mx-auto max-w-7xl">
       <h2 className="text-[32px] md:text-5xl font-bold text-center py-10">
         Frequently Asked Questions
       </h2>
